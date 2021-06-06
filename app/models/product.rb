@@ -10,15 +10,13 @@ class Product < ApplicationRecord
   belongs_to :scheduled_delivery
   belongs_to :user
 
-  with_options presence: true do
+   with_options presence: true do
     validates :image
     validates :name
     validates :info
     validates :price,
               numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999,
                               message: 'is invalid' }
-  end
-   with_options presence: true do
      with_options numericality: { other_than: 0, message: 'is invalid' } do
        validates :category_id
        validates :status_id
