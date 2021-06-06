@@ -129,14 +129,14 @@
       <% if @products.length != 0 %>
         <% @products.each do |product| %>
         <li class='list'>
-          <%= link_to item_path(product.id) do %>
+          <%= link_to root_path do %>
           <div class='item-img-content'>
             <%= image_tag product.image, class: "item-img" %>
-            <% if product.purchase.present? %>
-            <div class='sold-out'>
-              <span>Sold Out!!</span>
-            </div>
-            <% end %>
+            <%# if product.purchase.present? %>
+            <%# <div class='sold-out'>
+              <span>Sold Out!!</span> %>
+            <%# </div> %>
+            <%# end %>
           </div>
           <div class='item-info'>
             <h3 class='item-name'>
