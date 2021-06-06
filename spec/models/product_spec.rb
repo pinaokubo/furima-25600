@@ -103,6 +103,16 @@ RSpec.describe Product, type: :model do
         @product.valid?
         expect(@product.errors.full_messages).to include 'Price is invalid'
       end
+      it 'priceが半角英数混合では登録できないこと' do
+        @product.price = 'a300'
+        @product.valid?
+        expect(@product.errors.full_messages).to include 'Price is invalid'
+      end
+      it 'priceが半角英語だけでは登録できないこと' do
+        @product.price = 'aaaaa'
+        @product.valid?
+        expect(@product.errors.full_messages).to include 'Price is invalid'
+      end
       it 'ユーザーが紐付いていなければ登録できないこと' do
         @product.user = nil
         @product.valid?
