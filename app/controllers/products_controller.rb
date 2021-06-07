@@ -51,7 +51,7 @@ class ProductsController < ApplicationController
   end
 
   def unless_user
-    redirect_to root_path if @product.user_id != current_user.id 
+    redirect_to root_path if @product.user_id != current_user.id || @product.purchase.present?
   end
 
 end
