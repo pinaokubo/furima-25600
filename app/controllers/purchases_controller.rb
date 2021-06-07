@@ -1,7 +1,7 @@
 class PurchasesController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_product_id
-  before_action :unless_product
+  before_action :authenticate_user! ,only: [:index,  :create]
+  before_action :set_product_id, only: [:index,  :create]
+  before_action :unless_product, only: [:index,  :create]
   def index
     @purchase_address = PurchaseAddress.new
   end
