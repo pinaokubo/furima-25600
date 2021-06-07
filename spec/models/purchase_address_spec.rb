@@ -2,7 +2,7 @@ require 'rails_helper'
 RSpec.describe PurchaseAddress, type: :model do
   before do
     user = FactoryBot.create(:user)
-    item = FactoryBot.create(:product)
+    product = FactoryBot.create(:product)
     @purchase_address = FactoryBot.build(:purchase_address, user_id: user.id, product_id: product.id)
     sleep(0.1)
   end
@@ -94,8 +94,8 @@ RSpec.describe PurchaseAddress, type: :model do
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include("User can't be blank")
       end
-      it 'itemが紐付いていないと保存できないこと' do
-        @purchase_address.item_id = nil
+      it 'productが紐付いていないと保存できないこと' do
+        @purchase_address.product_id = nil
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include("Product can't be blank")
       end
