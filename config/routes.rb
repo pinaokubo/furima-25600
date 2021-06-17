@@ -7,4 +7,10 @@ Rails.application.routes.draw do
   namespace :users do
     resources :products, only: :index
   end
+  # scope :products do
+  #   resources :huga
+  # end
+  # namespace :products do
+  #   resources :huga
+  # end
 end
