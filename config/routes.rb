@@ -4,4 +4,13 @@ Rails.application.routes.draw do
   resources :products do
     resources :purchases, only: [:index, :create]
   end
+  namespace :users do
+    resources :products, only: :index
+  end
+  # scope :products do
+  #   resources :huga
+  # end
+  # namespace :products do
+  #   resources :huga
+  # end
 end
